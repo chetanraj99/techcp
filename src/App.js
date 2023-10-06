@@ -8,7 +8,7 @@ const App=()=>{
 
   const [expenses, setExpenses]=useState(DUMMY_EXPENSES);
   function fetchData(){
-    fetch('https://springrest-production-62bb.up.railway.app/courses').then(
+    fetch('https://springrest-production-b769.up.railway.app/courses').then(
     response => {
       return response.json();
     }
@@ -24,7 +24,7 @@ const App=()=>{
   
   const addExpenseHandler=(expense)=>{
 
-    fetch('https://springrest-production-62bb.up.railway.app/courses',{
+    fetch('https://springrest-production-b769.up.railway.app/courses',{
       method: "POST",
       body: JSON.stringify(expense),
       headers:{'content-Type' :'application/json'}
