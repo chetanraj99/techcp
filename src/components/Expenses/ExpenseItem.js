@@ -15,6 +15,31 @@ const ExpenseItem = (props) => {
 	//     setNewTitle(event.target.value);
 	// }
 
+	const setExpenses = props.setExpenses;
+
+	const handleDelete = (id) => {
+		const deleteData = async () => {
+			try {
+				fetch(
+					`https://springrest-production-b769.up.railway.app/courses/${id}`,
+					{
+						method: "DELETE",
+						headers: { "content-Type": "application/json" },
+					}
+				).then(() => {
+					setExpenses((preState) => {
+						return preState.filter((data) => {
+							return data.id !== id;
+						});
+					});
+				});
+			} catch (error) {
+				console.log(error);
+			}
+		};
+		deleteData();
+	};
+
 	return (
 		<Card className="expense-item">
 			{/* <ExpenseDate date={props.date}/> */}
@@ -25,7 +50,7 @@ const ExpenseItem = (props) => {
 					<button>
 						<FiEdit />
 					</button>
-					<button>
+					<button onClick={() => handleDelete(props.id)}>
 						<MdDelete />
 					</button>
 				</div>

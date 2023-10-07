@@ -9,6 +9,9 @@ const Expenses = (props) => {
 				<ExpenseItem
 					title={expense.title}
 					amount={expense.id}
+					id={expense.id}
+					key={expense.id}
+					setExpenses={props.setExpenses}
 					// date={expense.data}
 				/>
 				// </ExpenseItem>
